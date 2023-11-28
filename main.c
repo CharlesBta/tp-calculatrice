@@ -38,6 +38,7 @@ void Calculatrice(){
     int enMemoire = 0;
     int buffer;
     int selecteur = 0;
+
     while(1){
         printf("||| Calculatrice |||\n1. Addition\n2. Soustraction\n3. Multiplication\n4. Division\n5. Racine Carré\n6. Puissance\n7. Pourcentage (sous la forme 0.\"le pourcentage\")\n-1. Exit\n");
         scanf("%d",&selecteur);
@@ -184,17 +185,18 @@ void Calculatrice(){
         }else if (selecteur == -1){
             break;
         }
-
-        printf("1. Continuer\n2. Clear le calcule\n");
-        scanf("%d",&buffer);
-        getchar();
-        printf("%d\n",buffer);
-        if(buffer == 2){
-            result = 0;
-            enMemoire = 0;
+        while (1){
+            printf("1. Continuer\n2. Clear le calcule\n");
+            scanf("%d",&buffer);
+            getchar();
+            if(buffer == 2){
+                result = 0;
+                enMemoire = 0;
+                break;
+            }
+            else if (buffer == 1) { enMemoire = 1;
+                break; }
         }
-        else { enMemoire = 1; }
-        printf("EM %d, RS %lf", enMemoire,result);
         printf("\n");
     }
 }
